@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Anniversary</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<section class="card">
+<h1>💖 Happy 23rd Anniversary 💖</h1>
+<h2>Dear Papa and Mummy😘</h2>
+<h4>You are the reason I believe in true love 💕</h4>
+<p>Thank you for being the best parents and showing me what love really means.  
+Your love story is my inspiration and I am so grateful to have you both in my life.</p>
+<button onclick="next()">Start the Journey ➜</button>
+</section>
+
+<script src="script.js"></script>
+<script>
+function next(){
+    window.location='countdown.html';
+}
+
+// Floating hearts animation
+setInterval(() => {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = '💖';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (15 + Math.random() * 35) + 'px';
+    heart.style.opacity = Math.random() * 0.5 + 0.5;
+    document.body.appendChild(heart);
+    
+    setTimeout(() => heart.remove(), 6000);
+}, 500);
+</script>
+</body>
+</html>

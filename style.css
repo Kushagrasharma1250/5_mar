@@ -1,0 +1,367 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* BODY */
+body{
+    /* image background - replace 'background.jpg' with your file */
+    background: url('images/back.png') no-repeat center center fixed;
+    background-size: cover;
+
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow-x:hidden;
+    color:white;
+    padding:15px;
+}
+
+/* CARD */
+.card{
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    padding:30px 25px;
+    border-radius:20px;
+    max-width:900px;
+    width:100%;
+    box-shadow:0 0 30px rgba(0,0,0,0.35);
+    animation: fadeIn 0.8s ease;
+}
+
+/* HEADINGS */
+h1{
+    font-size:44px;
+    margin-bottom:15px;
+    animation: slideDown 0.8s ease, heartbeat 2s ease-in-out 1.2s;
+}
+h2{
+    font-size:26px;
+    margin-bottom:12px;
+    animation: slideUp 0.8s ease 0.3s backward;
+}
+h4{
+    font-size:20px;
+    margin-bottom:12px;
+    animation: fadeInText 1s ease 0.6s backward;
+}
+p{
+    font-size:18px;
+    line-height:1.7;
+    animation: fadeInText 1.2s ease 0.9s backward;
+}
+
+/* BUTTONS */
+button{
+    background: rgba(255,255,255,0.25);
+    border:2px solid white;
+    color:white;
+    padding:12px 28px;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s ease;
+    margin:15px 8px 0;
+    animation: bounceIn 1s ease 1.5s, pulse 2s ease-in-out 2.8s infinite;
+}
+
+button:hover{
+    background: rgba(255,255,255,0.45);
+    transform:scale(1.08);
+    box-shadow:0 0 18px rgba(255,255,255,0.5);
+    animation: none;
+}
+
+button:active{
+    transform:scale(0.95);
+}
+
+/* TIMER */
+.timer{
+    font-size:30px;
+    font-weight:bold;
+    margin-top:10px;
+    animation: fadeInText 1s ease 0.3s backward, timerGlow 2s ease-in-out 1.5s infinite;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    letter-spacing: 2px;
+}
+
+/* SLIDESHOW */
+.slideshow-container{
+    position:relative;
+    max-width:600px;
+    margin:20px auto;
+    border-radius:15px;
+    animation: fadeIn 1s ease 0.5s backward;
+}
+
+.slideshow{
+    margin:0 auto;
+    max-width:600px;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 18px rgba(0,0,0,0.4);
+}
+
+.slideshow img{
+    width:100%;
+    display:none;
+    animation: zoomIn 0.6s ease;
+    cursor:pointer;
+    transition: 0.3s ease;
+}
+
+.slideshow img:hover{
+    transform: scale(1.02);
+}
+
+/* Slideshow Controls */
+.prev-btn, .next-btn{
+    cursor:pointer;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:50px;
+    height:50px;
+    padding:0;
+    color:white;
+    font-weight:bold;
+    font-size:24px;
+    border-radius:50%;
+    background:rgba(0,0,0,0.5);
+    border:none;
+    transition:0.3s ease;
+    z-index:10;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0;
+    animation: fadeIn 1s ease 0.8s backward;
+}
+
+.next-btn{right:10px;}
+.prev-btn{left:10px;}
+
+.prev-btn:hover, .next-btn:hover{
+    background:rgba(0,0,0,0.8);
+    transform:translateY(-50%) scale(1.1);
+}
+
+.prev-btn:active, .next-btn:active{
+    transform:translateY(-50%) scale(0.95);
+}
+
+/* Slide Indicators */
+.slide-indicators{
+    text-align:center;
+    padding:15px 0;
+    animation: fadeIn 1s ease 1s backward;
+}
+
+.indicator{
+    height:12px;
+    width:12px;
+    margin:0 8px;
+    background-color:rgba(255,255,255,0.5);
+    border-radius:50%;
+    display:inline-block;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.indicator.active{
+    background-color:rgba(255,255,255,0.9);
+    transform:scale(1.2);
+    box-shadow:0 0 10px rgba(255,255,255,0.7);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.indicator:hover{
+    background-color:rgba(255,255,255,0.7);
+}
+
+/* Lightbox Modal */
+.modal{
+    display:none;
+    position:fixed;
+    z-index:1000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow:auto;
+    background:rgba(0,0,0,0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content{
+    margin:auto;
+    display:block;
+    max-width:90vw;
+    max-height:80vh;
+    animation:zoomIn 0.3s ease;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.close{
+    position:absolute;
+    top:20px;
+    right:35px;
+    color:#f1f1f1;
+    font-size:40px;
+    font-weight:bold;
+    cursor:pointer;
+    z-index:1001;
+    transition:0.3s ease;
+}
+
+.close:hover{
+    color:#bbb;
+    transform:scale(1.2);
+}
+
+.modal-nav{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:20px;
+    z-index:1001;
+}
+
+.modal-prev, .modal-next{
+    width:50px;
+    height:50px;
+    padding:0;
+    font-size:24px;
+    margin:0;
+}
+
+/* TIMELINE */
+.timeline{
+    margin-top:15px;
+    text-align:left;
+}
+.timeline div{
+    background: rgba(255,255,255,0.2);
+    padding:15px;
+    border-radius:15px;
+    margin:12px 0;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+.timeline div:hover{
+    background: rgba(255,255,255,0.35);
+    transform:translateX(10px);
+}
+
+/* HEART ANIMATION */
+.heart{
+    position:fixed;
+    color:rgba(255,255,255,0.8);
+    font-size:22px;
+    animation: float 6s linear infinite;
+    z-index:-1;
+}
+
+/* ANIMATIONS */
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh);}
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(25px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes slideDown{
+    from{opacity:0; transform:translateY(-30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes slideUp{
+    from{opacity:0; transform:translateY(25px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeInText{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes heartbeat{
+    0%, 100%{transform:scale(1);}
+    25%{transform:scale(1.1);}
+    50%{transform:scale(1);}
+}
+
+@keyframes bounceIn{
+    0%{opacity:0; transform:scale(0.3);}
+    50%{opacity:1; transform:scale(1.05);}
+    70%{transform:scale(0.9);}
+    100%{transform:scale(1);}
+}
+
+@keyframes pulse{
+    0%, 100%{box-shadow:0 0 18px rgba(255,255,255,0.3);}
+    50%{box-shadow:0 0 25px rgba(255,255,255,0.7);}
+}
+
+@keyframes timerGlow{
+    0%, 100%{box-shadow: 0 0 10px rgba(255,255,255,0.3);}
+    50%{box-shadow: 0 0 30px rgba(255,105,180,0.8);}
+}
+
+@keyframes zoom{
+    from{transform:scale(0.85);}
+    to{transform:scale(1);}
+}
+
+@keyframes zoomIn{
+    from{opacity:0; transform:scale(0.8);}
+    to{opacity:1; transform:scale(1);}
+}
+
+@keyframes slideInImage{
+    from{opacity:0; transform:translateX(-20px);}
+    to{opacity:1; transform:translateX(0);}
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:600px){
+    h1{font-size:32px;}
+    h2{font-size:22px;}
+    p{font-size:16px;}
+    .timer{font-size:22px;}
+    button{padding:10px 22px; font-size:14px;}
+    h1{
+        animation: slideDown 0.8s ease, heartbeat 2s ease-in-out 1.2s;
+    }
+    .prev-btn, .next-btn{
+        width:40px;
+        height:40px;
+        font-size:20px;
+    }
+    .modal-content{
+        max-width:100vw;
+        max-height:70vh;
+    }
+    /* additional mobile tweaks */
+    .card { margin: 10px; padding:20px; }
+    .slideshow, .slideshow-container { width:100%; }
+    .slideshow img { max-height:300px; object-fit:contain; }
+    .slide-indicators { padding:10px; }
+}
+}

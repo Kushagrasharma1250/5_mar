@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parents Anniversary - Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: fadeIn 1s ease;
+        }
+        
+        .slideshow {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+            background: #333;
+        }
+        
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            animation: slideIn 0.8s ease;
+        }
+        
+        .slide.active {
+            opacity: 1;
+            animation: zoomIn 0.6s ease;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slide-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        /* arrow buttons inside slideshow */
+        .arrow-btn {
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background 0.3s;
+        }
+        .arrow-btn:hover { background: rgba(0,0,0,0.7); }
+        .arrow-prev {}
+        .arrow-next {}
+        
+        .nav-btn {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s, transform 0.3s;
+            animation: bounceIn 1s ease;
+        }
+        .nav-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-btn:hover {
+            background: #764ba2;
+        }
+        
+        .counter {
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+        
+
+        
+        /* hearts animation (optional decorative) */
+        .heart {
+            position: fixed;
+            color: rgba(255,255,255,0.8);
+            font-size: 24px;
+            animation: float 6s linear infinite;
+            z-index: -1;
+        }
+
+        /* animation keyframes */
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);} 
+            to {opacity: 1; transform: translateY(0);} 
+        }
+
+        @keyframes slideIn {
+            from {opacity: 0; transform: translateX(-30px);} 
+            to {opacity: 1; transform: translateX(0);} 
+        }
+
+        @keyframes zoomIn {
+            from {transform: scale(0.85); opacity:0;} 
+            to {transform: scale(1); opacity:1;} 
+        }
+
+        @keyframes pulse {
+            0%,100% {transform: scale(1);} 
+            50% {transform: scale(1.3);} 
+        }
+        
+        @keyframes bounceIn {
+            0% {opacity:0; transform: scale(0.3);} 
+            50% {opacity:1; transform: scale(1.05);} 
+            70% {transform: scale(0.9);} 
+            100% {transform: scale(1);} 
+        }
+        
+        /* responsive adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 28px; }
+            .container { width: 100%; padding: 0; box-shadow: none; }
+            .slide-text { font-size: 18px; bottom: 10px; left: 10px; }
+            .controls { flex-direction: column; gap: 10px; }
+            .counter { margin: 10px 0; }
+            .nav-btn { width: 100%; }
+            .dots { padding: 5px; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slideshow">
+            <div class="slide active">
+                <img src="images/1.png" alt="Memory 1">
+                <div class="slide-text">Our Beautiful Journey</div>
+            </div>
+            <div class="slide">
+                <img src="images/2.png" alt="Memory 2">
+                <div class="slide-text">Happy Moments</div>
+            </div>
+            <div class="slide">
+                <img src="images/3.png" alt="Memory 3">
+                <div class="slide-text">Forever Together</div>
+            </div>
+            <div class="slide">
+                <img src="images/4.png" alt="Memory 4">
+            </div>
+            <div class="slide">
+                <img src="images/5.png" alt="Memory 5">
+            </div>
+            <div class="slide">
+                <img src="images/6.png" alt="Memory 6">
+            </div>
+            <div class="slide">
+                <img src="images/7.png" alt="Memory 7">
+            </div>
+            <div class="slide">
+                <img src="images/8.png" alt="Memory 8">
+            </div>
+            <div class="slide">
+                <img src="images/9.png" alt="Memory 9">
+            </div>
+            <div class="slide">
+                <img src="images/10.png" alt="Memory 10">
+            </div>
+            <div class="slide">
+                <img src="images/11.jpg" alt="Memory 11">
+            </div>
+            <div class="slide">
+                <img src="images/12.jpg" alt="Memory 12">
+            </div>
+            <div class="slide">
+                <img src="images/13.jpg" alt="Memory 13">
+            </div>
+            <div class="slide">
+                <img src="images/14.jpg" alt="Memory 14">
+            </div>
+            <div class="slide">
+                <img src="images/15.jpg" alt="Memory 15">
+            </div>
+            <div class="slide">
+                <img src="images/18.jpg" alt="Memory 18">
+            </div>
+            <div class="slide">
+                <img src="images/19.jpg" alt="Memory 19">
+            </div>
+            <div class="slide">
+                <img src="images/20.jpg" alt="Memory 20">
+            </div>
+            <div class="slide">
+                <img src="images/21.jpg" alt="Memory 21">
+            </div>
+            <div class="slide">
+                <img src="images/22.jpg" alt="Memory 22">
+            </div>
+            <div class="slide">
+                <img src="images/23.jpg" alt="Memory 23">
+            </div>
+            <div class="slide">
+                <img src="images/24.jpg" alt="Memory 24">
+            </div>
+            <div class="slide">
+                <img src="images/25.jpg" alt="Memory 25">
+            </div>
+            <div class="slide">
+                <img src="images/26.jpg" alt="Memory 26">
+            </div>
+            <div class="slide">
+                <img src="images/27.jpg" alt="Memory 27">
+            </div>
+            <div class="slide">
+                <img src="images/28.jpg" alt="Memory 28">
+            </div>
+            <div class="slide">
+                <img src="images/29.jpg" alt="Memory 29">
+            </div>
+            <div class="slide">
+                <img src="images/30.jpg" alt="Memory 30">
+            </div>
+            </div>
+        </div>
+        
+        
+        <div class="controls">
+            <!-- slideshow navigation arrows moved here -->
+            <button class="arrow-btn arrow-prev" onclick="prevSlide()">❮</button>
+            <button class="arrow-btn arrow-next" onclick="nextSlide()">❯</button>
+            <a href="countdown.html"><button class="nav-btn">← Previous</button></a>
+            <a href="timeline.html"><button class="nav-btn">Next →</button></a>
+        </div>
+    </div>
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        function showSlide() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide].classList.add('active');
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide();
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide();
+        }
+        
+        // Auto-advance slides every 5 seconds
+        setInterval(() => {
+            nextSlide();
+        }, 5000);
+
+        // floating hearts animation
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = '💖';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (15 + Math.random() * 35) + 'px';
+            heart.style.opacity = Math.random() * 0.5 + 0.5;
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }, 500);
+    </script>
+</body>
+</html>

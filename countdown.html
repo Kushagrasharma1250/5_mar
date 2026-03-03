@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Countdown</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<section class="card">
+<h1>💕 Time Spent Together</h1>
+<div class="timer" id="countdown"></div>
+
+<button onclick="prev()">⬅ Back</button>
+<button onclick="next()">Next ➜</button>
+</section>
+
+<script src="script.js"></script>
+<script>
+function prev(){window.location='index.html';}
+function next(){window.location='gallery.html';}
+
+// Floating hearts animation
+setInterval(() => {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = '💖';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (15 + Math.random() * 35) + 'px';
+    heart.style.opacity = Math.random() * 0.5 + 0.5;
+    document.body.appendChild(heart);
+    
+    setTimeout(() => heart.remove(), 6000);
+}, 500);
+
+// Animate timer numbers on update
+const timerEl = document.getElementById('countdown');
+const originalHTML = timerEl.innerHTML;
+
+setInterval(() => {
+    const newHTML = timerEl.innerHTML;
+    if(newHTML !== originalHTML) {
+        timerEl.style.animation = 'none';
+        setTimeout(() => {
+            timerEl.style.animation = 'timerGlow 2s ease-in-out infinite';
+        }, 10);
+    }
+}, 1000);
+</script>
+</body>
+</html>
