@@ -15,10 +15,12 @@
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            padding-bottom: 120px;
         }
         
         h1 {
@@ -78,6 +80,10 @@
         }
         
         .controls {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -85,6 +91,8 @@
             gap: 15px;
             padding: 20px;
             background: #f8f9fa;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+            z-index: 100;
         }
         /* arrow buttons inside slideshow */
         .arrow-btn {
@@ -169,9 +177,10 @@
         /* responsive adjustments */
         @media (max-width: 600px) {
             h1 { font-size: 28px; }
+            body { padding-bottom: 140px; }
             .container { width: 100%; padding: 0; box-shadow: none; }
             .slide-text { font-size: 18px; bottom: 10px; left: 10px; }
-            .controls { flex-direction: column; gap: 10px; }
+            .controls { flex-direction: column; gap: 10px; padding: 15px; }
             .counter { margin: 10px 0; }
             .nav-btn { width: 100%; }
             .dots { padding: 5px; }
@@ -271,15 +280,14 @@
             </div>
             </div>
         </div>
-        
-        
-        <div class="controls">
-            <!-- slideshow navigation arrows moved here -->
-            <button class="arrow-btn arrow-prev" onclick="prevSlide()">❮</button>
-            <button class="arrow-btn arrow-next" onclick="nextSlide()">❯</button>
-            <a href="countdown.html"><button class="nav-btn">← Previous</button></a>
-            <a href="timeline.html"><button class="nav-btn">Next →</button></a>
-        </div>
+    </div>
+    
+    <div class="controls">
+        <!-- slideshow navigation arrows moved here -->
+        <button class="arrow-btn arrow-prev" onclick="prevSlide()">❮</button>
+        <button class="arrow-btn arrow-next" onclick="nextSlide()">❯</button>
+        <a href="countdown.html"><button class="nav-btn">← Previous</button></a>
+        <a href="timeline.html"><button class="nav-btn">Next →</button></a>
     </div>
     
     <script>
